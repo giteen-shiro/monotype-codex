@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>MonoType</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="data-area">
+      <div class="timer-info">60</div>
+      <button disabled class="end-test">End Test</button>
+    </div>
+    <div class="main-area">
+      <div class="start-btn"><button class="start-test">Start Typing</button></div>
+      <div class="type-space">
+        <textarea name="typewriter" autocomplete="off" id="textInput"></textarea>
+        <div id="textContainer" class="text-container"></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="wpm-info">WPM : 0</div>
+      <div class="accuracy-info">Accuracy : 0%</div>
+      <div class="time-taken-info">Time Taken : 40 seconds</div>
+      <button class="restart-btn" onclick="window.location.reload()">Restart</button>
+      <button class="close-card">
+        &cross;
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

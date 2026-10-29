@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+:root {
+  --clr-theme: #36393f;
+
+  --clr-incorrect: #ca4754;
+  --clr-correct: #43b581;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+button,
+textarea,
+input {
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  padding: .5rem 1rem;
+  background-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  transition: 150ms background-color;
+
+  &:disabled {
+    cursor: not-allowed!important;
+    transition: none!important;
+    background-color: transparent!important;
+    opacity: .8;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+body {
+  background-color: #212529;
+  font-family: 'Fira Code', monospace;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  position: relative;
+  width: 75%;
+
+  .data-area {
+    display: flex;
+    gap: 5em;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+
+    .wpm-info {
+      font-size: 1.4rem;
+    }
+    .timer-info {
+      font-size: 2rem;
+    }
+    .end-test {
+      padding: 1rem 2rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #ccc2;
+      }
+      &:active {
+        background-color: #ccc5;
+      }
+    }
+  }
+
+  .main-area {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    .start-btn {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(3px);
+      z-index: 9999;
+
+      .start-test {
+        padding: 1rem 2rem;
+        background-color: #ccc;
+        color: #000;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: #aaa;
+        }
+        &:active {
+          background-color: #888;
+        }
+      }
+    }
+
+    .type-space {
+      position: relative;
+      height: 100%;
+
+      * {
+        width: 100%;
+        height: 100%;
+      }
+
+      #textContainer {
+        position: relative;
+        /* height: 100%; */
+        line-height: 1.75;
+
+        span {
+          letter-spacing: .5px;
+          word-spacing: 1px;
+          font-size: 30px;
+          color: #ccc;
+          position: relative;
+
+          &.current::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #fff;
+            animation: blink 1s infinite;
+          }
+
+          &.correct {
+            color: lightgreen!important;
+          }
+          &.incorrect {
+            color: red;
+          }
+        }
+      }
+
+      #textInput {
+        color: transparent;
+        height: 0;
+        position: absolute;
+        padding: 0;
+      }
+    }
+  }
+
+  .test-card {
+    position: absolute;
+    /* height: 150%; */
+    /* width: 110%; */
+    padding: 3rem 10rem;
+    background-color: #111a;
+    border-radius: 20px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: .5em;
+    font-size: 30px;
+    z-index: 1000000;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+
+    .close-card {
+      position: absolute;
+      right: .5rem;
+      top: .5rem;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 10px;
+
+      &:hover {
+        outline: 1px solid #fff;
+      }
+    }
+
+    .restart-btn {
+      border: 1px solid #fff;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 1rem 4rem;
+
+      &:hover {
+        color: #000;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+#textContainer {
+  border: 3px solid orangered;
+}
+
+#textInput {
+  border: 1px solid gold;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
